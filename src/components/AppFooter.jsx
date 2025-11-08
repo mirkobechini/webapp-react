@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function AppFooter({ menu }) {
     return (
-        <footer className="bg-dark-subtle">
+        <footer className="bg-dark-subtle py-4">
             <div className="container">
                 <div className="row">
                     <ul className="col list-unstyled">
