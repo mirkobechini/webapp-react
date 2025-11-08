@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-export default function AppHeader() {
+export default function AppHeader({ menu }) {
 
     return (
         <header>
@@ -12,15 +12,13 @@ export default function AppHeader() {
                     </button>
                     <div className="collapse navbar-collapse" id="navMovies">
                         <ul className="navbar-nav ms-2 gap-2">
-                            <li className="nav-item">
-                                <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/movies">Movies</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="#">Other</NavLink>
-                            </li>
+                            {
+                                menu.map((item) => (
+                                    <li className="nav-item" key={item.id}>
+                                        <NavLink className="nav-link" aria-current="page" to={item.link}>{item.text}</NavLink>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </div>
                 </div>
