@@ -8,13 +8,13 @@ export default function AppFooter(){
                     <ul className="col list-unstyled">
                         <h5>Quick links</h5>
                         <li className="ps-2">
-                            <Nav className="nav-link" aria-current="page" to="/">Home</Link>
+                            <Link className="nav-link" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="ps-2">
-                            <Nav className="nav-link" aria-current="page" to="/movies">Movies</Link>
+                            <Link className="nav-link" aria-current="page" to="/movies">Movies</Link>
                         </li>
                         <li className="ps-2">
-                            <Nav className="nav-link" aria-current="page" to="#">Other</Link>
+                            <Link className="nav-link" aria-current="page" to="#">Other</Link>
                         </li>
                     </ul>
                     <ul className="col list-unstyled">
