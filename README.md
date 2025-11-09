@@ -25,7 +25,7 @@ Ora è il momento di prepararci al frontend della nostra Web App!
 
 ## MILESTONE 4
 
-- [] In ultimo, effettuiamo una chiamata AJAX dalla pagina di dettaglio per ottenere il dettaglio di un singolo film, comprese le sue recensioni
+- [X] In ultimo, effettuiamo una chiamata AJAX dalla pagina di dettaglio per ottenere il dettaglio di un singolo film, comprese le sue recensioni
 
 ## Bonus
-- [] Curare l’aspetto estetico della vostra applicazione
+- [X] Curare l’aspetto estetico della vostra applicazione
