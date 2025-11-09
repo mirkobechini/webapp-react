@@ -6,7 +6,7 @@ export default function MovieCard({movie}) {
             <div className="col">
                 <div className="card">
                     <Link to={`/movies/${movie.id}`}>
-                        <img className="card-img-top" src={movie.image} alt="" />
+                        <img className="card-img-top" src={movie.image} alt={movie.title} />
                     </Link>
                     <div className="card-body">
                         <h5 className="card-title">{movie.title}</h5>

@@ -5,6 +5,7 @@ import DefaultLayout from "./DefaultLayout"
 import menu from "./data/menu"
 import HomePage from "./pages/HomePage"
 import MoviesPage from "./pages/MoviesPage"
+import MoviePage from "./pages/MoviePage"
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
           <Route element={<DefaultLayout menu = {menu}/>}>
             <Route path="/" element={<HomePage/>} />
             <Route path="/movies" element={<MoviesPage/>} />
-            <Route path="/movies/:id" element={<h1>MoviePage</h1>} />
+            <Route path="/movies/:id" element={<MoviePage/>} />
             <Route path="*" element={<h1>404 Not Found</h1>} />
           </Route>
         </Routes>
