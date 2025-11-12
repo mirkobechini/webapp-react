@@ -16,7 +16,9 @@ export default function MoviePage() {
     useEffect(() => {
         axios.get(`${API_URL}/${id}`)
             .then(res => {
+                res.data.image = `/${res.data.image}`
                 setMovie(res.data)
+                
 
             })
             .catch(err => {
