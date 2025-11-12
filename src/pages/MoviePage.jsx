@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios"
 import { useParams } from "react-router-dom";
 import ReviewsList from "../components/ReviewsList";
+import ReviewForm from "../components/ReviewForm";
 
 const API_URL = "http://localhost:3000/api/movies"
 
@@ -45,7 +46,7 @@ export default function MoviePage() {
                     </div>
                 </div>
             </div>
-
+            <ReviewForm/>
             <ReviewsList reviews={movie?.reviews || []} />
 
         </>
