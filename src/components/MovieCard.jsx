@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 
-export default function MovieCard({movie}) {
+export default function MovieCard({ movie }) {
     return (
         <>
             <div className="col">
                 <div className="card">
-                    <Link to={`/movies/${movie.id}`}>
-                        <img className="card-img-top" src={movie.image} alt={movie.title} />
-                    </Link>
+                    <div>
+                        <div className="app-sizer">
+                            <Link to={`/movies/${movie.id}`}>
+                                <img className="card-img-top" src={movie.image} alt={movie.title}/>
+                            </Link>
+                        </div>
+                    </div>
                     <div className="card-body">
                         <h5 className="card-title">{movie.title}</h5>
                         <div className="card-text pb-3">
