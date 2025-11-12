@@ -9,7 +9,7 @@ export default function ReviewsList({ reviews }) {
                     {
                         reviews.map((review) => (
 
-                            <ReviewCard review = {review} />
+                            <ReviewCard review = {review} key={review.id}/>
 
                         ))
                     }
