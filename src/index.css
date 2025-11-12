@@ -7,3 +7,8 @@
     aspect-ratio: 1 / 1;
     overflow: hidden;
 }
+
+
+#root{
+    background-color: lightgoldenrodyellow;
+}
