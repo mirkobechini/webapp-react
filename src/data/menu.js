@@ -11,8 +11,8 @@ const menu = [
     },
     {
         id: 3,
-        text: "Other",
-        link: "#"
+        text: "Admin",
+        link: "/admin"
     }
 ]
 
