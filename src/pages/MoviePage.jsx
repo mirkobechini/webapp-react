@@ -46,7 +46,7 @@ export default function MoviePage() {
                     </div>
                 </div>
             </div>
-            <ReviewForm/>
+            <ReviewForm id={id} />
             <ReviewsList reviews={movie?.reviews || []} />
 
         </>
