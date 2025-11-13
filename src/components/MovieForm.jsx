@@ -1,11 +1,9 @@
 import axios from "axios";
 import { useState } from "react"
 
-const API_URL = "http://localhost:3000"
+const API_URL = "http://localhost:3000/api/movies"
 
-export default function MovieForm({ id }) {
-
-
+export default function MovieForm() {
 
     const initialForm = {
         title: "",
@@ -28,19 +26,24 @@ export default function MovieForm({ id }) {
         data.append("title", formData.title)
         data.append("director", formData.director)
         data.append("genre", formData.genre)
-        data.append("release_year", formData.title)
+        data.append("release_year", Number(formData.release_year))
         data.append("abstract", formData.abstract)
         data.append("image", formData.image)
 
-
-        axios.post(`${API_URL}/api/movies/`, data)
+        console.log(data);
+        console.log(API_URL);
+        
+        axios.post(API_URL, data)
             .then(res => {
                 console.log(res);
-                setFormData(initialForm)
+                if(res.status === 201){
+                    setFormData(initialForm)
+                    console.log("Movie created successfully");
+                }
 
             })
             .catch(err => {
-                console.log(err);
+                console.log(err.message);
             })
 
     }
@@ -51,7 +54,7 @@ export default function MovieForm({ id }) {
             <div className="container">
                 <div className="h4 mb-3">Add Movie</div>
                 <div className="card p-3 bg-dark-subtle">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} encType='multipart/form-data' >
                         <div className=" mb-3">
                             <label htmlFor="title" className="form-label text-center">Title</label>
                             <input type="text" className="form-control" id="title"  value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
@@ -70,7 +73,7 @@ export default function MovieForm({ id }) {
                         </div>
                         <div className=" mb-3">
                             <label htmlFor="image" className="form-label text-center">Poster</label>
-                            <input type="file" className="form-control" id="image" onChange={(e) => setFormData({ ...formData, image: e.target.files })} />
+                            <input type="file" className="form-control" id="image" onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })} />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="abstract" className="form-label text-center">Abstract</label>
