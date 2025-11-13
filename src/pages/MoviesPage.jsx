@@ -11,16 +11,21 @@ export default function MoviesPage() {
     const [movies, setMovies] = useState([])
     const [error, setError] = useState(null)
 
-    useEffect(() => {
-        axios.get(API_URL)
+        function fetchData() {
+        axios.get(`${API_URL}`)
             .then(res => {
+                res.data.image = `/${res.data.image}`
                 setMovies(res.data)
+
+
             })
             .catch(err => {
                 console.log(err.message);
                 setError({ error: err.message });
             })
-    }, [])
+    }
+
+    useEffect(fetchData, [])
 
     return (
         <>
