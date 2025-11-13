@@ -13,7 +13,7 @@ export default function MovieForm({ id }) {
         genre: "",
         release_year: "",
         abstract: "",
-        image: ""
+        image: null
     }
 
     const [formData, setFormData] = useState(initialForm)
@@ -23,11 +23,17 @@ export default function MovieForm({ id }) {
         e.preventDefault()
         console.log(formData);
 
-        axios.post(`${API_URL}/movies/${id}/`, formData, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        const data = new FormData()
+
+        data.append("title", formData.title)
+        data.append("director", formData.director)
+        data.append("genre", formData.genre)
+        data.append("release_year", formData.title)
+        data.append("abstract", formData.abstract)
+        data.append("image", formData.image)
+
+
+        axios.post(`${API_URL}/api/movies/`, data)
             .then(res => {
                 console.log(res);
                 setFormData(initialForm)
@@ -35,11 +41,7 @@ export default function MovieForm({ id }) {
             })
             .catch(err => {
                 console.log(err);
-
             })
-
-
-
 
     }
 
@@ -68,7 +70,7 @@ export default function MovieForm({ id }) {
                         </div>
                         <div className=" mb-3">
                             <label htmlFor="image" className="form-label text-center">Poster</label>
-                            <input type="text" className="form-control" id="image" value={formData.image} onChange={(e) => setFormData({ ...formData, image: e.target.value })} />
+                            <input type="file" className="form-control" id="image" onChange={(e) => setFormData({ ...formData, image: e.target.files })} />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="abstract" className="form-label text-center">Abstract</label>
