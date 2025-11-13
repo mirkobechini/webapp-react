@@ -1,17 +1,20 @@
 import MovieCard from "../components/MovieCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import axios from "axios"
+import GlobalContext from "../context/GlobalContext";
 
 const API_URL = "http://localhost:3000/api/movies"
 
 
 export default function MoviesPage() {
 
+    const { setLoading } = useContext(GlobalContext)
     const [movies, setMovies] = useState([])
     const [error, setError] = useState(null)
 
-        function fetchData() {
+    function fetchData() {
+        setLoading(true)
         axios.get(`${API_URL}`)
             .then(res => {
                 res.data.image = `/${res.data.image}`
@@ -22,6 +25,10 @@ export default function MoviesPage() {
             .catch(err => {
                 console.log(err.message);
                 setError({ error: err.message });
+            })
+            .then(()=>{
+
+                setLoading(false)
             })
     }
 
@@ -41,7 +48,7 @@ export default function MoviesPage() {
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {
                         movies.map((movie) => (
-                            <MovieCard movie = {movie} key={movie.id} />
+                            <MovieCard movie={movie} key={movie.id} />
                         ))
                     }
 
