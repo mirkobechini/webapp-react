@@ -3,7 +3,7 @@ import { useState } from "react"
 
 const API_URL = "http://localhost:3000/api/movies"
 
-export default function MovieForm() {
+export default function MovieForm({setMovieCreated}) {
 
     const initialForm = {
         title: "",
@@ -19,24 +19,30 @@ export default function MovieForm() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(formData);
 
         const data = new FormData()
 
-        data.append("title", formData.title)
-        data.append("director", formData.director)
+        data.append("title", formData.title  || "no title")
+        data.append("director", formData.director || "no director")
         data.append("genre", formData.genre)
         data.append("release_year", Number(formData.release_year))
         data.append("abstract", formData.abstract)
-        data.append("image", formData.image)
+        data.append("image", formData.image )
 
-        console.log(data);
-        console.log(API_URL);
-        
+        console.log(formData);
+        const newMovie = {
+            title: formData.title,
+            director: formData.director,
+            genre: formData.genre,
+            release_year: Number(formData.release_year),
+            abstract: formData.abstract,
+            image: formData.image?.name
+        }
         axios.post(API_URL, data)
             .then(res => {
                 console.log(res);
                 if(res.status === 201){
+                    setMovieCreated(newMovie)
                     setFormData(initialForm)
                     console.log("Movie created successfully");
                 }
@@ -73,7 +79,7 @@ export default function MovieForm() {
                         </div>
                         <div className=" mb-3">
                             <label htmlFor="image" className="form-label text-center">Poster</label>
-                            <input type="file" className="form-control" id="image" onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })} />
+                            <input type="file" className="form-control" required id="image" onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })} />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="abstract" className="form-label text-center">Abstract</label>
