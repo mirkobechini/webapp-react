@@ -50,9 +50,9 @@ export default function Dashboard() {
                                     <td> {movie.title}</td>
                                     <td> {movie.director}</td>
                                     <td>
-                                        <a className="btn btn-dark mx-1">
+                                        <Link to={`/movies/${movie.id}`} className="btn btn-dark mx-1">
                                             <i className="bi bi-eye"></i>
-                                        </a>
+                                        </Link>
                                         <a className="btn btn-primary mx-1">
                                             <i className="bi bi-pencil"></i>
                                         </a>
