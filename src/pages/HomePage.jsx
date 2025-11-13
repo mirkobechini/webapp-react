@@ -1,29 +1,10 @@
 import { Link } from "react-router-dom";
-import MovieCard from "../components/MovieCard";
-import { useEffect, useState } from "react";
 
-import axios from "axios"
 
 const API_URL = "http://localhost:3000"
 
 export default function HomePage() {
-    /*
-    TODO: in backend change '/' response
-    const [movies, setMovies] = useState([])
-    const [error, setError] = useState(null)
 
-    useEffect(()=>{
-        axios.get(API_URL)
-        .then(res=>{
-            console.log(res.data);
-            
-        })
-        .catch(err=>{
-            console.log(err.message);
-            setError({error: err.message});
-        })
-    },[])
-    */
 
     return (
         <>
@@ -38,13 +19,6 @@ export default function HomePage() {
                     </Link>
                 </div>
             </div>
-            {/* coming soon...
-            <div className="container mb-4">
-                <div className="row row-cols-1 row-cols-md-3 g-4">
-                    <MovieCard/>
-                </div>
-            </div>
-            */}
 
         </>
     )
