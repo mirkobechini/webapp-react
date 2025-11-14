@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 const API_URL = "http://localhost:3000/api/movies"
 
-export default function MovieForm({setMovieCreated}) {
+export default function MovieForm({ setMovieCreated }) {
 
     const initialForm = {
         title: "",
@@ -14,6 +14,9 @@ export default function MovieForm({setMovieCreated}) {
         image: null
     }
 
+    // reset file input field
+    const fileRef = useRef(null)
+
     const [formData, setFormData] = useState(initialForm)
 
 
@@ -22,27 +25,18 @@ export default function MovieForm({setMovieCreated}) {
 
         const data = new FormData()
 
-        data.append("title", formData.title  || "no title")
+        data.append("title", formData.title || "no title")
         data.append("director", formData.director || "no director")
         data.append("genre", formData.genre)
         data.append("release_year", Number(formData.release_year))
         data.append("abstract", formData.abstract)
-        data.append("image", formData.image )
+        data.append("image", formData.image)
 
-        console.log(formData);
-        const newMovie = {
-            title: formData.title,
-            director: formData.director,
-            genre: formData.genre,
-            release_year: Number(formData.release_year),
-            abstract: formData.abstract,
-            image: formData.image?.name
-        }
         axios.post(API_URL, data)
             .then(res => {
-                console.log(res);
-                if(res.status === 201){
-                    setMovieCreated(newMovie)
+                if (res.status === 201) {
+                    setMovieCreated(res.data.movie)                    
+                    fileRef.current.value = ""
                     setFormData(initialForm)
                     console.log("Movie created successfully");
                 }
@@ -63,23 +57,23 @@ export default function MovieForm({setMovieCreated}) {
                     <form onSubmit={handleSubmit} encType='multipart/form-data' >
                         <div className=" mb-3">
                             <label htmlFor="title" className="form-label text-center">Title</label>
-                            <input type="text" className="form-control" id="title"  value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
+                            <input type="text" className="form-control" id="title" value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
                         </div>
-                         <div className=" mb-3">
+                        <div className=" mb-3">
                             <label htmlFor="director" className="form-label text-center">Director</label>
-                            <input type="text" className="form-control" id="director"  value={formData.director} onChange={(e) => setFormData({ ...formData, director: e.target.value })} />
+                            <input type="text" className="form-control" id="director" value={formData.director} onChange={(e) => setFormData({ ...formData, director: e.target.value })} />
                         </div>
                         <div className=" mb-3">
                             <label htmlFor="genre" className="form-label text-center">Genre</label>
-                            <input type="text" className="form-control" id="genre"  value={formData.genre} onChange={(e) => setFormData({ ...formData, genre: e.target.value })} />
+                            <input type="text" className="form-control" id="genre" value={formData.genre} onChange={(e) => setFormData({ ...formData, genre: e.target.value })} />
                         </div>
                         <div className=" mb-3">
                             <label htmlFor="release_year" className="form-label text-center">Release Year</label>
-                            <input type="text" className="form-control" id="release_year"  value={formData.release_year} onChange={(e) => setFormData({ ...formData, release_year: e.target.value })} />
+                            <input type="text" className="form-control" id="release_year" value={formData.release_year} onChange={(e) => setFormData({ ...formData, release_year: e.target.value })} />
                         </div>
                         <div className=" mb-3">
                             <label htmlFor="image" className="form-label text-center">Poster</label>
-                            <input type="file" className="form-control" required id="image" onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })} />
+                            <input type="file" className="form-control" required id="image" ref={fileRef} onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })} />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="abstract" className="form-label text-center">Abstract</label>
