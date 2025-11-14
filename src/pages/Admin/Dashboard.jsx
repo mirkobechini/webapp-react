@@ -21,6 +21,20 @@ export default function Dashboard() {
             })
     }, [])
 
+    function handleDelete(id){
+        axios.delete(`${API_URL}/${id}`)
+             .then(res => {
+                if(res.status === 204){
+                   setMovies(movies.filter(movie => movie.id!= id))
+                    console.log("Movie deleted successfully");
+                }
+
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
+    }
+
     return (
         <>
             <div className="bg-primary-subtle">
@@ -31,7 +45,7 @@ export default function Dashboard() {
             </div>
 
             <div className="container">
-                <div className="table-responsive-sm">
+                <div className="table-responsive-sm py-3">
                     <table className="table table-striped tabe-borderless table-dark align-middle">
                         <thead className="table-dark">
                             <tr>
@@ -45,7 +59,7 @@ export default function Dashboard() {
                             {movies.map(movie =>
                                 <tr className="table-dark" key={movie.id}>
                                     <td scope="row" >
-                                        <img width={60} src={`/${movie.image}`} alt={movie.title} />
+                                        <img width={60} src={movie.image} alt={movie.title} />
                                     </td>
                                     <td> {movie.title}</td>
                                     <td> {movie.director}</td>
@@ -56,7 +70,7 @@ export default function Dashboard() {
                                         <a className="btn btn-primary mx-1">
                                             <i className="bi bi-pencil"></i>
                                         </a>
-                                        <a className="btn btn-danger mx-1">
+                                        <a onClick={()=>handleDelete(movie.id)} className="btn btn-danger mx-1">
                                             <i className="bi bi-trash"></i>
                                         </a>
                                     </td>
