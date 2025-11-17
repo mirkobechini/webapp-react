@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react"
 
-const API_URL = "http://localhost:3000"
+const API_URL = "http://localhost:3000/api"
 
 export default function ReviewForm({id}) {
     
@@ -19,12 +19,9 @@ export default function ReviewForm({id}) {
     function handleSubmit(e){
         e.preventDefault()
         console.log(formData);
+        console.log(id);
 
-        axios.post(`${API_URL}/movies/${id}/reviews`, formData,{
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        })
+        axios.post(`${API_URL}/movies/${id}/reviews`, formData)
         .then( res => {
             console.log(res);
             setFormData(initialForm)
