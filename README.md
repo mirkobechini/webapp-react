@@ -1,31 +1,137 @@
-# Esercizio
-Ora è il momento di prepararci al frontend della nostra Web App!
+# 🚀 WebApp React - Movies Frontend
 
-## MILESTONE 0 
+> Frontend React per consultare film, vedere dettagli/recensioni e aggiungere nuovi film tramite area admin, collegato a una API Express.
 
-- [X] Ragionare  su come impostare la struttura del lavoro, magari createvo uno schemino in maniera da sfruttare la riutailizzabilità dei componenti React e le loro props al meglio.
+![Banner o Screenshot](./readme-img/moviePage-preview.png)
 
-## MILESTONE 1
+![GitHub stars](https://img.shields.io/github/stars/mirko-bechini/webapp-react?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/mirko-bechini/webapp-react?style=flat-square)
+![GitHub license](https://img.shields.io/badge/license-ISC-lightgrey)
+![Version](https://img.shields.io/badge/version-0.0.0-blue)
 
-- [X] Mettiamo su un nuovo progetto React aiutandoci con Vite
-- [X] Ripuliamo come sempre l’app da file e codice di esempio non necessari
-- [X] Installiamo il necessario: React Router, Axios e Bootstrap (se volete utilizzarlo)
+---
 
-## MILESTONE 2
+## 🌍 Demo
 
-- [X] Creiamo un layout di base per la nostra applicazione ed impostiamo le rotte per le diverse pagine.
-- [] Creiamo 2 pagine:
-    - [X] La home, in cui mostreremo la lista dei film
-    - [] La pagina di dettaglio di un singolo film
+- Live: locale su `http://localhost:5173`
+- Video/GIF: screenshot in `readme-img/moviePage-preview.png`
 
-## MILESTONE 3
+---
 
-- [X] Configuriamo l’app di backend (repo webapp-express) a ricevere chiamate dalla nostra applicazione React, installando e impostando il middleware CORS
-- [X] Proviamo quindi ad effettuare una chiamata Ajax dalla home del progetto React, per ottenere la lista dei film
+## 🌟 Caratteristiche principali
 
-## MILESTONE 4
+- **Catalogo film**: visualizzazione lista film da API con card e accesso al dettaglio.
+- **Dettaglio film + recensioni**: pagina dedicata al film con elenco recensioni e form per aggiungerne di nuove.
+- **Area admin**: sezione con form multipart per creare un film (incluso upload poster) e anteprima del risultato.
+- **Navigazione client-side**: routing con layout pubblico/admin e fallback `404 Not Found`.
+- **Stato globale loader**: gestione caricamento centralizzata tramite Context API.
 
-- [X] In ultimo, effettuiamo una chiamata AJAX dalla pagina di dettaglio per ottenere il dettaglio di un singolo film, comprese le sue recensioni
+---
 
-## Bonus
-- [X] Curare l’aspetto estetico della vostra applicazione
+## 🛠️ Tech Stack
+
+| Tecnologia               | Scopo                      |
+| :----------------------- | :------------------------- |
+| **React 19 + Vite**      | Core frontend SPA          |
+| **React Router DOM**     | Routing pagine/layout      |
+| **Axios**                | Chiamate HTTP alla API     |
+| **Bootstrap 5 + Icons**  | UI e componenti grafici    |
+| **Express API (extern)** | Fonte dati (`/api/movies`) |
+
+---
+
+## 🚀 Quick Start
+
+### Requisiti
+
+Prima di iniziare, assicurati di avere installato:
+
+- Node.js (v18+ consigliato)
+- npm
+- Backend `webapp-express` avviato (porta `3000`)
+
+### Installazione
+
+```bash
+# Entra nella cartella frontend
+cd "06)WEBAPP/webapp-react"
+
+npm install
+```
+
+Se non e gia attivo, avvia anche il backend in una seconda shell:
+
+```bash
+cd "06)WEBAPP/webapp-express"
+npm install
+npm run dev
+```
+
+### Avvio
+
+```bash
+# Frontend React/Vite
+npm run dev
+```
+
+Apri il browser su `http://localhost:5173`.
+
+Note API:
+- Frontend usa `http://localhost:3000/api/movies`
+- Assicurati che il backend esponga correttamente la rotta `/api/movies`
+
+---
+
+## 📂 Struttura del progetto
+
+```text
+.
+|-- src/
+|   |-- components/
+|   |-- context/
+|   |-- data/
+|   |-- layout/
+|   |-- pages/
+|   |   |-- Admin/
+|   |-- App.jsx
+|   |-- main.jsx
+|-- public/
+|-- readme-img/
+|-- README.md
+|-- package.json
+|-- vite.config.js
+```
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Navigazione pagine Home/Movies/Movie/Admin
+- [x] Integrazione API film e recensioni
+- [x] Creazione film con upload immagine
+
+---
+
+## 🤝 Contribuire
+
+Le contribuzioni migliorano il progetto. Per contribuire:
+
+1. Fai fork del repository
+2. Crea un branch: `git checkout -b feature/NomeFeature`
+3. Esegui commit: `git commit -m "Add NomeFeature"`
+4. Fai push del branch: `git push origin feature/NomeFeature`
+5. Apri una Pull Request
+
+---
+
+## 📄 Licenza
+
+Distribuito sotto licenza ISC (vedi `package.json`).
+
+---
+
+## 📧 Contatti
+
+Mirko Bechini - LinkedIn: (https://www.linkedin.com/in/mirko-bechini-892202252) - mirko.bechini@gmail.com
+
+Link progetto: https://github.com/mirko-bechini
