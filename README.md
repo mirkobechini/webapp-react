@@ -2,7 +2,7 @@
 
 > Frontend React per consultare film, vedere dettagli/recensioni e aggiungere nuovi film tramite area admin, collegato a una API Express.
 
-![Banner o Screenshot](./readme-img/moviePage-preview.png)
+![Screenshot](./readme-img/moviePage-preview.png)
 
 ![GitHub stars](https://img.shields.io/github/stars/mirko-bechini/webapp-react?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/mirko-bechini/webapp-react?style=flat-square)
@@ -132,6 +132,6 @@ Distribuito sotto licenza ISC (vedi `package.json`).
 
 ## 📧 Contatti
 
-Mirko Bechini - LinkedIn: (https://www.linkedin.com/in/mirko-bechini-892202252) - mirko.bechini@gmail.com
+Mirko Bechini - LinkedIn: (https://www.linkedin.com/in/mirko-bechini-892202252) - mirkobechini@gmail.com
 
-Link progetto: https://github.com/mirko-bechini
+Link progetto: https://github.com/mirkobechini/webapp-react
