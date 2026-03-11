@@ -4,10 +4,10 @@
 
 ![Screenshot](./readme-img/moviePage-preview.png)
 
-![GitHub stars](https://img.shields.io/github/stars/mirko-bechini/webapp-react?style=flat-square)
-![GitHub forks](https://img.shields.io/github/forks/mirko-bechini/webapp-react?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/mirkobechini/webapp-react?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/mirkobechini/webapp-react?style=flat-square)
 ![GitHub license](https://img.shields.io/badge/license-ISC-lightgrey)
-![Version](https://img.shields.io/badge/version-0.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
 
 ---
 
