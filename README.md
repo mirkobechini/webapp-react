@@ -54,7 +54,7 @@ Prima di iniziare, assicurati di avere installato:
 
 ```bash
 # Entra nella cartella frontend
-cd "06)WEBAPP/webapp-react"
+cd "webapp-react"
 
 npm install
 ```
@@ -62,7 +62,7 @@ npm install
 Se non e gia attivo, avvia anche il backend in una seconda shell:
 
 ```bash
-cd "06)WEBAPP/webapp-express"
+cd "webapp-express"
 npm install
 npm run dev
 ```
